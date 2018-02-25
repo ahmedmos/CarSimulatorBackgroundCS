@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AzureIoTHub.cs" />
+    <Compile Include="CarEvent.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -104,7 +106,15 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <PRIResource Include="azureResources.resw" />
     <None Include="CarSimulatorBackgroundCS_TemporaryKey.pfx" />
+    <None Include="Connected Services\ahmedmostelemetryhub\ConnectedService.json" />
+    <Content Include="VINMasterList.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="VINRefData.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\Default.rd.xml" />
@@ -127,9 +137,69 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="DotNetty.Buffers">
+      <Version>0.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="DotNetty.Codecs">
+      <Version>0.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="DotNetty.Codecs.Mqtt">
+      <Version>0.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="DotNetty.Common">
+      <Version>0.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="DotNetty.Transport">
+      <Version>0.4.4</Version>
+    </PackageReference>
+    <PackageReference Include="EnterpriseLibrary.TransientFaultHandling">
+      <Version>6.0.1304</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client">
+      <Version>5.2.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.Amqp">
+      <Version>2.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.Devices.Client">
+      <Version>1.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Azure.Devices.Shared">
+      <Version>1.0.10</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging">
+      <Version>1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions">
+      <Version>1.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.4</Version>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="PCLCrypto">
+      <Version>2.0.147</Version>
+    </PackageReference>
+    <PackageReference Include="PInvoke.BCrypt">
+      <Version>0.5.64</Version>
+    </PackageReference>
+    <PackageReference Include="PInvoke.Kernel32">
+      <Version>0.5.64</Version>
+    </PackageReference>
+    <PackageReference Include="PInvoke.NCrypt">
+      <Version>0.5.64</Version>
+    </PackageReference>
+    <PackageReference Include="PInvoke.Windows.Core">
+      <Version>0.5.64</Version>
+    </PackageReference>
+    <PackageReference Include="Validation">
+      <Version>2.4.15</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

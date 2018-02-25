@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,22 @@ namespace CarSimulatorBackgroundCS
         public MainPage()
         {
             this.InitializeComponent();
+            SendMessagesToIoTHub();
+        }
+
+        private void SendMessagesToIoTHub()
+        {
+            Task.Run(async () => {
+
+                try
+                {
+                    await AzureIoTHub.SendDeviceToCloudMessageAsync();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            });
         }
     }
 }
