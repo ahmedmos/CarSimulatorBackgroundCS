@@ -106,8 +106,10 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="ConnectedCarsPbiReport.pbix" />
     <PRIResource Include="azureResources.resw" />
     <None Include="CarSimulatorBackgroundCS_TemporaryKey.pfx" />
+    <None Include="carTelemetryQatar.pbix" />
     <None Include="Connected Services\ahmedmostelemetryhub\ConnectedService.json" />
     <Content Include="VINMasterList.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
